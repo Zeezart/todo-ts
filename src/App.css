@@ -1,0 +1,91 @@
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem;
+}
+
+.header {
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+}
+
+.input-container {
+  padding: 16px;
+}
+
+.input-container input {
+  width: calc(100% - 32px);
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tasks-container {
+  padding: 16px;
+}
+
+.task {
+  background-color: #ecf0f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task input {
+  width: calc(100% - 16px);
+  padding: 4px;
+  margin-right: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.task button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background-color: #c0392b;
+}
+
+.percentage {
+  margin-top: 16px;
+  text-align: center;
+  color: #555;
+}
+
+
+@media screen and (max-width: 1000px){
+  body { 
+    display: block; 
+  }
+  .container{
+    box-shadow: none;
+  }
+}
