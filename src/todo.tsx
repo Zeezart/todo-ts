@@ -8,7 +8,7 @@ interface TodoProps {
   markAsDone: (taskId: number) => void;
 }
 
-const Todo: React.FC<TodoProps> = ({ tasks, deleteTask, editTask, markAsDone }) => {
+const Todo: React.FC<TodoProps> = ({ tasks, deleteTask,  markAsDone }) => {
   return (
     <Stack spacing={2} width="100%">
       {tasks.map((task) => (
