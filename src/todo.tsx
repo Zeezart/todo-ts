@@ -5,7 +5,6 @@ import { Button, Checkbox,  Stack, Text } from '@chakra-ui/react';
 interface TodoProps {
   tasks: { id: number; text: string; done: boolean }[];
   deleteTask: (taskId: number) => void;
-  editTask: (taskId: number, newText: string) => void;
   markAsDone: (taskId: number) => void;
 }
 
