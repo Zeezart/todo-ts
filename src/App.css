@@ -84,14 +84,22 @@ body {
   color: #555;
 }
 
-.flex{
-  justify-content: space-between;
-}
 
+.para{
+  padding: 4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: grey;
+  border-radius: 100%;
+  border: 2px dotted grey;
+  margin: 2rem 0;
+  margin-bottom: 4rem;
+  opacity: 30%;
+}
 @media screen and (max-width: 1000px){
-  body { 
+  /* body { 
     display: block; 
-  }
+  } */
   .container{
     height: 100vh;
     box-shadow: none;

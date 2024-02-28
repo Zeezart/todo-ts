@@ -61,19 +61,25 @@ const App: React.FC = () => {
               </Button>
             </Stack>
           </div>
-         
-          <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} />
-          
-          <Box
-            width="100%"
-            height="10px"
-            borderRadius="5px"
-            background={`linear-gradient(to right, #3498db ${calculatePercentage()}%, #ecf0f1 ${calculatePercentage()}%)`}
-            mb={4}
-          />
-          <Stack direction="row" spacing={4} mb={4}>
-            <Text>{`${calculatePercentage()}% tasks done`}</Text>
-          </Stack>
+         {tasks?.length === 0 ? <div className='para'>
+          <p>Your task will<br/>appear here</p>
+         </div> : 
+         <>
+  
+            <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} />
+            
+            <Box
+              width="100%"
+              height="10px"
+              borderRadius="5px"
+              background={`linear-gradient(to right, #3498db ${calculatePercentage()}%, #ecf0f1 ${calculatePercentage()}%)`}
+              mb={4}
+            />
+            <Stack direction="row" spacing={4} mb={4}>
+              <Text>{`${calculatePercentage()}% tasks done`}</Text>
+            </Stack>
+         </>
+         }
         </Flex>
       </div>
     </ChakraProvider>
