@@ -58,7 +58,7 @@ const App: React.FC = () => {
             </Stack>
           </div>
          
-          <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} className="todoList" />
+          <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} />
           
           <Box
             width="100%"
