@@ -8,26 +8,30 @@ const App: React.FC = () => {
   const [tasks, setTasks] = useState<{ id: number; text: string; done: boolean }[]>([]);
   const [newTask, setNewTask] = useState('');
 
+  //...........save to local storage.................
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-    setTasks(storedTasks || []); 
-  }, []);
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]')
+    setTasks(storedTasks || []) 
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   const addTask = () => {
     if (newTask.trim() !== '') {
-      setTasks([...tasks, { id: Date.now(), text: newTask, done: false }]);
-      setNewTask('');
+      setTasks([...tasks, { id: Date.now(), text: newTask, done: false }])
+      setNewTask('')
     }
   };
 
+  //.................delete task.....................
   const deleteTask = (taskId: number) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
+    setTasks(tasks.filter((task) => task.id !== taskId))
   };
 
+
+  //................mark as done....................
   const markAsDone = (taskId: number) => {
     setTasks(tasks.map((task) => (task.id === taskId ? { ...task, done: !task.done } : task)));
   };
