@@ -1,8 +1,8 @@
 // App.tsx
 import React, { useState, useEffect } from 'react';
-import { Box, ChakraProvider, Flex, Heading, Input, Stack, Button, Progress } from '@chakra-ui/react';
+import { Box, ChakraProvider, Flex, Heading, Input, Stack, Button, Text } from '@chakra-ui/react';
 import Todo from './todo';
-import './App.css'; // Import the CSS file
+import './App.css'; 
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<{ id: number; text: string; done: boolean }[]>([]);
@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-    setTasks(storedTasks || []); // Ensure that tasks is an array
+    setTasks(storedTasks || []); 
   }, []);
 
   useEffect(() => {
@@ -42,23 +42,34 @@ const App: React.FC = () => {
     <ChakraProvider>
       <div className="container">
         <Flex direction="column" align="center">
-          <Heading className="header" mb={4}>
-            Todo App
-          </Heading>
-          <Stack className="input-container" direction="row" spacing={4} mb={4}>
-            <Input
-              placeholder="Add a new task"
-              value={newTask}
-              onChange={(e) => setNewTask(e.target.value)}
-            />
-            <Button colorScheme="blue" onClick={addTask}>
-              Add
-            </Button>
-          </Stack>
-          <div style={{ height: '10px' }}>
-            <Progress value={calculatePercentage()} colorScheme="blue" mb={4} />
+          <div>
+            <Heading className="header" mb={4}>
+              Todo App
+            </Heading>
+            <Stack className="input-container" direction="row" spacing={4} mb={4}>
+              <Input
+                placeholder="Add a new task"
+                value={newTask}
+                onChange={(e) => setNewTask(e.target.value)}
+              />
+              <Button colorScheme="blue" onClick={addTask}>
+                Add
+              </Button>
+            </Stack>
           </div>
-          <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} />
+         
+          <Todo tasks={tasks} deleteTask={deleteTask} markAsDone={markAsDone} className="todoList" />
+          
+          <Box
+            width="100%"
+            height="10px"
+            borderRadius="5px"
+            background={`linear-gradient(to right, #3498db ${calculatePercentage()}%, #ecf0f1 ${calculatePercentage()}%)`}
+            mb={4}
+          />
+          <Stack direction="row" spacing={4} mb={4}>
+            <Text>{`${calculatePercentage()}% tasks done`}</Text>
+          </Stack>
         </Flex>
       </div>
     </ChakraProvider>

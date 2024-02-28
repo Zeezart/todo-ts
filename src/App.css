@@ -14,9 +14,10 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   width: 100%;
   padding: 2rem;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .header {
@@ -74,18 +75,26 @@ body {
   background-color: #c0392b;
 }
 
+.todoList{
+  margin-bottom: 1rem;
+}
 .percentage {
   margin-top: 16px;
   text-align: center;
   color: #555;
 }
 
+.flex{
+  justify-content: space-between;
+}
 
 @media screen and (max-width: 1000px){
   body { 
     display: block; 
   }
   .container{
+    height: 100vh;
     box-shadow: none;
+    max-height: 100%;
   }
 }
